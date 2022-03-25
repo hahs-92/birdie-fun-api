@@ -10,13 +10,13 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(value = "/birdies")
+@RequestMapping("/birdies")
 public class BirdieController {
 
     @Autowired
     private BirdieService service;
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<Mono<Birdie>> create(@RequestBody Birdie birdie) {
         try {
             return new ResponseEntity<>(service.create(birdie), HttpStatus.CREATED);
