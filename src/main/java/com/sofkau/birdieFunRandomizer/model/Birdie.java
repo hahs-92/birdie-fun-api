@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Document(value = "birdies")
 public class Birdie {
@@ -13,6 +15,7 @@ public class Birdie {
     private Integer number;
     private String limit;
     private LocalDate date;
+    private List<Integer> holes = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -44,5 +47,13 @@ public class Birdie {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public List<Integer> getHoles() {
+        return holes;
+    }
+
+    public void setHoles(List<Integer> holes) {
+        this.holes = holes;
     }
 }
